@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body>
+
+
+  <div class="flex justify-center"> <h1 class="text-4xl">Hello World</h1> </div>
+
+
+
+
+
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="data-body">
+    </tbody>
+  </table>
+
+  <script>
+    // Fetch data from the Apps Script JSON API
+    fetch('https://script.google.com/macros/s/AKfycbzgutFEciOCaMboaMsXyl8M9ae5Pw3J_q9oWwTUrxeamN5t6yJWLA6IUnQhGIRu_8c3/exec')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Debugging statement
+        
+        const tableBody = document.getElementById('data-body');
+
+        // Iterate over the data and create table rows
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          const idCell = document.createElement('td');
+          idCell.textContent = item.id;
+          const nameCell = document.createElement('td');
+          nameCell.textContent = item.name;
+          const emailCell = document.createElement('td');
+          emailCell.textContent = item.email;
+
+          row.appendChild(idCell);
+          row.appendChild(nameCell);
+          row.appendChild(emailCell);
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => console.log(error));
+  </script>
+
+
+
+
+
+
+
+</body>
+</html> 
