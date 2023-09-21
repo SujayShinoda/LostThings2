@@ -7,9 +7,11 @@
   <table id="data-table">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>USER</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Phone</th>
+        <th>Notes</th>
       </tr>
     </thead>
     <tbody id="data-body">
@@ -27,17 +29,21 @@
         data.forEach(item => {
           const row = document.createElement('tr');
           const idCell = document.createElement('td');
-          idCell.textContent = item.id;
+          UserCell.textContent = item.User;
           const nameCell = document.createElement('td');
-          nameCell.textContent = item.name;
-          const emailCell = document.createElement('td');
-          emailCell.textContent = item.email;
-          const emailCell = document.createElement('td');
-          emailCell.textContent = item.email;
+          NameCell.textContent = item.Name;
+          const EmailCell = document.createElement('td');
+          EmailCell.textContent = item.Email;
+          const PhoneCell = document.createElement('td');
+          PhoneCell.textContent = item.Phone;
+          const NotesCell = document.createElement('td');
+          NotesCell.textContent = item.Notes;
 
-          row.appendChild(idCell);
-          row.appendChild(nameCell);
-          row.appendChild(emailCell);
+          row.appendChild(UserCell);
+          row.appendChild(NameCell);
+          row.appendChild(EmailCell);
+          row.appendChild(PhoneCell);
+          row.appendChild(NotesCell);
           tableBody.appendChild(row);
         });
       })
