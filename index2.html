@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch API Example</title>
+</head>
+<body>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="data-body">
+    </tbody>
+  </table>
+
+  <script>
+    // Fetch data from the Apps Script JSON API
+    fetch('https://script.google.com/macros/s/AKfycbzMVMUfzlo7QHAjhPhlPWM98M5KihhmM0KP-PmPV8T1h4HFUT0eW28N-G_RRDFro-rf/exec')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Debugging statement
+        
+        const tableBody = document.getElementById('data-body');
+
+        // Iterate over the data and create table rows
+        data.data.forEach(item => {
+          const row = document.createElement('tr');
+          const IDCell = document.createElement('td');
+          IDCell.textContent = item.ID;
+          const NameCell = document.createElement('td');
+          NameCell.textContent = item.Name;
+          const EmailCell = document.createElement('td');
+          EmailCell.textContent = item.Email;
+
+          row.appendChild(IDCell);
+          row.appendChild(NameCell);
+          row.appendChild(EmailCell);
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => console.log(error));
+  </script>
+</body>
+</html>
