@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON API to HTML Table</title>
+</head>
+<body>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>USER</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>NoteS</th>
+      </tr>
+    </thead>
+    <tbody id="data-body">
+    </tbody>
+  </table>
+
+  <script>
+    // Fetch data from the API
+    fetch('https://script.google.com/macros/s/AKfycbzRyOwl2uyUFDZQBg8NhWilNIHjmxigaF1yKYnn4QPKYYu2HNNJtJdNlWJTIjEPBCSy/exec')
+      .then(response => response.json())
+      .then(data => {
+        const tableBody = document.getElementById('data-body');
+
+        // Iterate over the data and create table rows
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          const idCell = document.createElement('td');
+          UserCell.textContent = item.User;
+          const nameCell = document.createElement('td');
+          NameCell.textContent = item.Name;
+          const EmailCell = document.createElement('td');
+          EmailCell.textContent = item.Email;
+          const PhoneCell = document.createElement('td');
+          PhoneCell.textContent = item.Phone;
+          const NotesCell = document.createElement('td');
+          NotesCell.textContent = item.Notes;
+
+          row.appendChild(UserCell);
+          row.appendChild(NameCell);
+          row.appendChild(EmailCell);
+          row.appendChild(PhoneCell);
+          row.appendChild(NotesCell);
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => console.log(error));
+  </script>
+</body>
+</html>
