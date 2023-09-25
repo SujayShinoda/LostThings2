@@ -7,11 +7,11 @@
   <table id="data-table">
     <thead>
       <tr>
-        <th>USER</th>
+        <th>User</th>
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
-        <th>NoteS</th>
+        <th>Notes</th>
       </tr>
     </thead>
     <tbody id="data-body">
@@ -26,11 +26,11 @@
         const tableBody = document.getElementById('data-body');
 
         // Iterate over the data and create table rows
-        data.forEach(item => {
+        data.data.forEach(item => {
           const row = document.createElement('tr');
-          const idCell = document.createElement('td');
+          const UserCell = document.createElement('td');
           UserCell.textContent = item.User;
-          const nameCell = document.createElement('td');
+          const NameCell = document.createElement('td');
           NameCell.textContent = item.Name;
           const EmailCell = document.createElement('td');
           EmailCell.textContent = item.Email;
