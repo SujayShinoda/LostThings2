@@ -1,0 +1,34 @@
+<html>
+<body>
+
+<script>
+navigator.geolocation.getCurrentPosition(function(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+
+  let recipientEmail = "example@example.com";
+  let subject = "Location Update";
+  let body = `Check out my location on Google Maps: https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+
+  let emailLink = document.createElement("a");
+  emailLink.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  emailLink.innerText = "Send Location in Email";
+  document.body.appendChild(emailLink);
+});
+
+
+
+</script>
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+</html>
