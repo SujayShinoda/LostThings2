@@ -169,7 +169,7 @@ body {
           LocationLink.textContent = "Location: " +document.body;
 
 
-
+/** SENDING EMAIL SHORTCUT **/
 
             let recipientEmail = item.Email;
             let subject = "LostThings";
@@ -179,16 +179,14 @@ body {
             emailLink.innerText = "Send Email";
             EmailCell.appendChild(emailLink);
 
+/** PHONECALL SHORTCUT **/
+
 
             let call = item.Phone;
             let link = document.createElement("a");
             link.href = "tel:" + call;
             link.innerText = item.Phone;
             PhoneCell.appendChild(link);
-
-
-
-            
 
 
           
@@ -201,15 +199,15 @@ body {
 
 
 
-
+/** SENDING LOCATION IN EMAIL SHORTCUT **/
 
   navigator.geolocation.getCurrentPosition(function(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
 
   
-  let subjecta = "Location Update";
-  let bodya = `Check out my location on Google Maps: https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+  let subjecta = "LostThings: Location Update";
+  let bodya = `Hi, Please find your device at this location on Google Maps: https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
 
   let LocationLink = document.createElement("a");
   LocationLink.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subjecta)}&body=${encodeURIComponent(bodya)}`;
