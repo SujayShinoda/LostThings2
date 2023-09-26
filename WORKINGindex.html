@@ -217,20 +217,7 @@ body {
 });
 
 
-/** WORKING ON ADDING A BUTTON INSTEAD OF IMAGE **/
 
-let button = document.getElementById("myButton"); // Replace "myButton" with the ID of your button element
-
-button.addEventListener("click", function() {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-
-    // Use the location data as needed
-    console.log("Latitude:", latitude);
-    console.log("Longitude:", longitude);
-  });
-});
 
 
 
