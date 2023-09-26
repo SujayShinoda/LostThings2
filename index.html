@@ -165,6 +165,9 @@ body {
           const NotesCell = document.createElement('tr');
           NotesCell.textContent = "Notes: " +item.Notes;
 
+          const LocationLink = document.createElement('tr');
+          LocationLink.textContent = "Location: " +document.body;
+
 
 
 
@@ -193,24 +196,26 @@ body {
           row.appendChild(EmailCell);
           row.appendChild(PhoneCell);
           row.appendChild(NotesCell);
+         /** row.appendChild(LocationLink); **/
           tableBody.appendChild(row);
 
 
 
 
 
-          navigator.geolocation.getCurrentPosition(function(position) {
+  navigator.geolocation.getCurrentPosition(function(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
 
-  let recipientEmail = "example@example.com";
-  let subject = "Location Update";
-  let body = `Check out my location on Google Maps: https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+  
+  let subjecta = "Location Update";
+  let bodya = `Check out my location on Google Maps: https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
 
-  let emailLink = document.createElement("a");
-  emailLink.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  emailLink.innerText = "Send Location in Email";
-  document.body.appendChild(emailLink);
+  let LocationLink = document.createElement("a");
+  LocationLink.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subjecta)}&body=${encodeURIComponent(bodya)}`;
+  let imageSource = "loc.png";
+  LocationLink.innerHTML = `<img src="${imageSource}">`;
+  document.body.appendChild(LocationLink);
 });
 
 
